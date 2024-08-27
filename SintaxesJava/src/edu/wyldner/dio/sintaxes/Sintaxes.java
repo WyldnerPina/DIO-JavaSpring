@@ -34,6 +34,9 @@ public class Sintaxes {
 		
 		operadores();
 		metodos();
+		
+		double saida = 0.123456789;
+		System.out.println(String.format("%.2f", saida));// duas casas
 	}
 	
 	

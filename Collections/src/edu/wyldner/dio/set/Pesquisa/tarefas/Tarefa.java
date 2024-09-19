@@ -1,4 +1,4 @@
-package edu.wyldner.dio.set.Pesquisa;
+package edu.wyldner.dio.set.Pesquisa.tarefas;
 
 public class Tarefa {
   //atributos

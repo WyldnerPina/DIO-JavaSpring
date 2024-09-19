@@ -11,10 +11,17 @@ public class AgendaContatos {
     this.agendaContatoMap = new HashMap<>();
   }
 
-  public void adicionarContato(String nome, Integer telefone) {
-    agendaContatoMap.put(nome, telefone);
+  //=======================================================================
+  //add contato
+  public void adicionarContato(String nome, Integer telefone) {// entra em ordem aleatória
+    agendaContatoMap.put(nome, telefone);// mét put serve tanto pra add qnto para alterar. segue a chave = 1º parâmetro add (aqui nome)
+    // no set ficaria o primeiro q add
   }
-
+  
+  
+  
+//=======================================================================
+  // remove
   public void removerContato(String nome) {
     if (!agendaContatoMap.isEmpty()) {
       agendaContatoMap.remove(nome);
@@ -22,7 +29,11 @@ public class AgendaContatos {
       System.out.println("A agenda de contatos está vazia.");
     }
   }
-
+  
+  
+  
+//=======================================================================  
+  // exibe
   public void exibirContatos() {
     if (!agendaContatoMap.isEmpty()) {
       System.out.println(agendaContatoMap);
@@ -30,20 +41,28 @@ public class AgendaContatos {
       System.out.println("A agenda de contatos está vazia.");
     }
   }
-
+  
+  
+//=======================================================================
   public Integer pesquisarPorNome(String nome) {
     Integer numeroPorNome = null;
+    
+    
     if (!agendaContatoMap.isEmpty()) {
       numeroPorNome = agendaContatoMap.get(nome);
       if (numeroPorNome == null) {
         System.out.println("Contato não encontrado na agenda.");
       }
+           
     } else {
       System.out.println("A agenda de contatos está vazia.");
     }
     return numeroPorNome;
   }
+  
+  
 
+//=======================================================================
   public static void main(String[] args) {
     AgendaContatos agendaContatos = new AgendaContatos();
 

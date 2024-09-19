@@ -8,40 +8,58 @@ public class ConjuntoConvidados {
   private Set<Convidado> convidadosSet;
 
   public ConjuntoConvidados() {
-    this.convidadosSet = new HashSet<>();
+    this.convidadosSet = new HashSet<>();// lista de convidados vazia
   }
 
+  
+  //===========================================================================
   public void adicionarConvidado(String nome, int codigoConvite) {
-    convidadosSet.add(new Convidado(nome, codigoConvite));
+    convidadosSet.add(new Convidado(nome, codigoConvite));// só tem mét add, não tem posição ou all
   }
 
+//===========================================================================
   public void removerConvidadoPorCodigoConvite(int codigoConvite) {
     Convidado convidadoParaRemover = null;
+    
+    
     if (!convidadosSet.isEmpty()) {
       for (Convidado c : convidadosSet) {
         if (c.getCodigoConvite() == codigoConvite) {
-          convidadoParaRemover = c;
+          convidadoParaRemover = c;// daria pra remover já aqui sem passar pra um novo obj
           break;
         }
       }
       convidadosSet.remove(convidadoParaRemover);
+      
+      
     } else {
       throw new RuntimeException("O conjunto está vazio!");
     }
   }
 
+  
+  
+//===========================================================================
+  // size
   public int contarConvidados() {
     return convidadosSet.size();
   }
 
+  
+//===========================================================================
+  // exibir 
   public void exibirConvidados() {
     if (!convidadosSet.isEmpty()) {
-      System.out.println(convidadosSet);
+      System.out.println(convidadosSet);// imprime lista
     } else {
       System.out.println("O conjunto está vazio!");
     }
   }
 
+  
+  
+  
+//===========================================================================
   public static void main(String[] args) {
     // Criando uma instância da classe ConjuntoConvidados
     ConjuntoConvidados conjuntoConvidados = new ConjuntoConvidados();
@@ -52,7 +70,7 @@ public class ConjuntoConvidados {
     // Adicionando convidados ao conjunto
     conjuntoConvidados.adicionarConvidado("Alice", 1234);
     conjuntoConvidados.adicionarConvidado("Bob", 1235);
-    conjuntoConvidados.adicionarConvidado("Charlie", 1235);
+    conjuntoConvidados.adicionarConvidado("Charlie", 1235);// como código é igual ao de cima, não será salvo
     conjuntoConvidados.adicionarConvidado("David", 1236);
 
     // Exibindo os convidados no conjunto

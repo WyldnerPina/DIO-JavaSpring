@@ -4,20 +4,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EstoqueProdutos {
-  private Map<Long, Produto> estoqueProdutosMap;
+  private Map<Long, Produto> estoqueProdutosMap;// o produto aparece no tipo
 
   public EstoqueProdutos() {
     this.estoqueProdutosMap = new HashMap<>();
   }
+  
+  
+  
 
+//=======================================================================  
+  // add
   public void adicionarProduto(long cod, String nome, int quantidade, double preco) {
     estoqueProdutosMap.put(cod, new Produto(nome, preco, quantidade));
   }
-
+  
+  
+  
+//=======================================================================
+  // exibe
   public void exibirProdutos() {
     System.out.println(estoqueProdutosMap);
   }
+  
+  
 
+//=======================================================================
+  //
   public double calcularValorTotalEstoque() {
     double valorTotalEstoque = 0d;
     if (!estoqueProdutosMap.isEmpty()) {
@@ -28,9 +41,13 @@ public class EstoqueProdutos {
     return valorTotalEstoque;
   }
 
+  
+  
+//=======================================================================
   public Produto obterProdutoMaisCaro() {
     Produto produtoMaisCaro = null;
-    double maiorPreco = Double.MIN_VALUE;
+    double maiorPreco = Double.MIN_VALUE;// pra começar com um valor mínimo
+    
     for (Produto p : estoqueProdutosMap.values()) {
       if (p.getPreco() > maiorPreco) {
         produtoMaisCaro = p;
@@ -39,10 +56,14 @@ public class EstoqueProdutos {
     }
     return produtoMaisCaro;
   }
-
+  
+  
+  
+//=======================================================================
   public Produto obterProdutoMaisBarato() {
     Produto produtoMaisBarato = null;
     double menorPreco = Double.MAX_VALUE;
+    
     for (Produto p : estoqueProdutosMap.values()) {
       if (p.getPreco() < menorPreco) {
         produtoMaisBarato = p;
@@ -52,6 +73,9 @@ public class EstoqueProdutos {
     return produtoMaisBarato;
   }
 
+  
+  
+//=======================================================================
   public Produto obterProdutoMaiorQuantidadeValorTotalNoEstoque() {
     Produto produtoMaiorQuantidadeValorNoEstoque = null;
     double maiorValorTotalProdutoEstoque = 0d;
@@ -67,6 +91,12 @@ public class EstoqueProdutos {
     return produtoMaiorQuantidadeValorNoEstoque;
   }
 
+  
+  
+  
+  
+  
+//=======================================================================
   public static void main(String[] args) {
     EstoqueProdutos estoque = new EstoqueProdutos();
 

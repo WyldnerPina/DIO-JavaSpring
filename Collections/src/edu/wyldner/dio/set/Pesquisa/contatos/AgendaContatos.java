@@ -1,4 +1,4 @@
-package edu.wyldner.dio.set.Pesquisa;
+package edu.wyldner.dio.set.Pesquisa.contatos;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +12,7 @@ public class AgendaContatos {
   }
 
   public void adicionarContato(String nome, int numero) {
-    contatosSet.add(new Contato(nome, numero));
+    contatosSet.add(new Contato(nome, numero));// dentro de um hashset é add aleatoriamente, então se imprimir não sai na ordem de add
   }
 
   public void exibirContatos() {
@@ -23,36 +23,52 @@ public class AgendaContatos {
     }
   }
 
+  
+  //============================================================
   public Set<Contato> pesquisarPorNome(String nome) {
     Set<Contato> contatosPorNome = new HashSet<>();
+    
+    
     if (!contatosSet.isEmpty()) {
       for (Contato c : contatosSet) {
-        if (c.getNome().startsWith(nome)) {
+        if (c.getNome().startsWith(nome)) {//vê se o nome inicia daquele jeito
           contatosPorNome.add(c);
         }
       }
       return contatosPorNome;
+      
+      
     } else {
       throw new RuntimeException("O conjunto está vazio!");
     }
   }
 
+  
+  //============================================================
   public Contato atualizarNumeroContato(String nome, int novoNumero) {
     Contato contatoAtualizado = null;
+    
+    
     if (!contatosSet.isEmpty()) {
       for (Contato c : contatosSet) {
-        if (c.getNome().equalsIgnoreCase(nome)) {
+        if (c.getNome().equalsIgnoreCase(nome)) { 
           c.setNumero(novoNumero);
           contatoAtualizado = c;
           break;
         }
       }
       return contatoAtualizado;
+      
+      
     } else {
       throw new RuntimeException("O conjunto está vazio!");
     }
   }
 
+  
+  
+  
+  //============================================================
   public static void main(String[] args) {
     // Criando uma instância da classe AgendaContatos
     AgendaContatos agendaContatos = new AgendaContatos();

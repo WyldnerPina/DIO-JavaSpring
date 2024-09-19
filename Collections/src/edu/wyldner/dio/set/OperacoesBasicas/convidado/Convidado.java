@@ -20,6 +20,11 @@ public class Convidado {
     return codigoConvite;
   }
 
+  
+  //============================================================  
+//esse méts EQUALS e HASHCODE são criados para dizer qual o atributo da classe q deve ser comparado para q o elemento seja único
+  // Criado como um construtor ou tostring ctrl+shift+s → generate hashcode() and equals()
+  
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -27,11 +32,16 @@ public class Convidado {
     return getCodigoConvite() == convidado.getCodigoConvite();
   }
 
+  
+  
   @Override
   public int hashCode() {
     return Objects.hash(getCodigoConvite());
   }
-
+  
+  
+  
+  //============================================================
   @Override
   public String toString() {
     return "Convidado{" +

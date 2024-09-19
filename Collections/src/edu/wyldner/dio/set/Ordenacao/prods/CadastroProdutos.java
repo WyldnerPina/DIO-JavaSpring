@@ -12,12 +12,22 @@ public class CadastroProdutos {
     this.produtoSet = new HashSet<>();
   }
 
+  
+  
+  //================================================================================================
   public void adicionarProduto(long cod, String nome, double preco, int quantidade) {
     produtoSet.add(new Produto(cod, nome, preco, quantidade));
   }
 
+  
+//================================================================================================
+  // odem de nome
   public Set<Produto> exibirProdutosPorNome() {
-    Set<Produto> produtosPorNome = new TreeSet<>(produtoSet);
+    Set<Produto> produtosPorNome = new TreeSet<>(produtoSet);//hashset não deixa organizar, então precisa ser treeset
+    // não precisa o sort aqui, o treeset já sabe organizar. é possível passar um set ou já um comparator, como aqui é
+    // comparable, passamos o set
+    
+    
     if (!produtoSet.isEmpty()) {
       return produtosPorNome;
     } else {
@@ -25,8 +35,11 @@ public class CadastroProdutos {
     }
   }
 
+  
+//================================================================================================
+  // ordem de preço
   public Set<Produto> exibirProdutosPorPreco() {
-    Set<Produto> produtosPorPreco = new TreeSet<>(new ComparatorPorPreco());
+    Set<Produto> produtosPorPreco = new TreeSet<>(new ComparatorPorPreco());// aqui passamos o comparator
     if (!produtoSet.isEmpty()) {
       produtosPorPreco.addAll(produtoSet);
       return produtosPorPreco;
@@ -35,6 +48,9 @@ public class CadastroProdutos {
     }
   }
 
+  
+  
+//================================================================================================
   public static void main(String[] args) {
     // Criando uma instância do CadastroProdutos
     CadastroProdutos cadastroProdutos = new CadastroProdutos();
